@@ -1,0 +1,41 @@
+@import "./common";
+
+.class1 {
+    color: red;
+
+    &.active {
+        color: black;
+
+        &:hover {
+            background: gren;
+        }
+    }
+
+    &-xx {
+        color: aqua;
+    }
+
+    &__block {
+        color: rebeccapurple;
+    }
+}
+
+body {
+    background: $brand_color;
+}
+
+header {
+    color: green;
+    @include transform(rotate(30deg));
+
+    .logo {
+        width: 30px;
+
+        &:hover {
+            display: block;
+        }
+
+    }
+}
+
+@import "./_homepage";
