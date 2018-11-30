@@ -1,7 +1,19 @@
-$brand_color: #999;
-
 @mixin transform($property) {
     -webkit-transform: $property;
     -ms-transform: $property;
     transform: $property;
 }
+
+$font12 : 12px;
+$font14:14px;
+$font18:18px;
+$font30:30px;
+$color-red: #e70101;
+$color-green:#43833e;
+$color-black:#000000;
+$color-grey:#555555;
+$color-white-grey:#e5e5e5;
+
+$height50:50px;
+$height250:330px;
+$width720:720px;

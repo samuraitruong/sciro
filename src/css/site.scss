@@ -1,41 +1,159 @@
 @import "./common";
 
-.class1 {
-    color: red;
 
-    &.active {
-        color: black;
+
+.font12 {
+    font-size: $font12;
+}
+
+.font30 {
+    font-size: $font30;
+}
+
+.header {
+    &--red {
+        background-color: $color-red;
+    }
+
+    &--green {
+        color: $color-green;
+    }
+
+
+
+    &--height50 {
+        height: $height50;
+    }
+
+    &--height250 {
+        height: $height250;
+    }
+}
+
+%text-format {
+    text-transform: uppercase !important;
+    font-weight: bold !important;
+
+}
+
+%text-normal {
+    text-transform: none;
+    font-weight: normal;
+}
+
+.menu-title {
+    position: relative;
+    @extend %text-format;
+    color: $color-black;
+    font-size: $font14;
+
+    &:hover {
+        color: $color-green;
+
+        .menu-item {
+            display: block !important;
+            width: $width720;
+            // z-index: 999;
+
+            & a {
+                @extend %text-normal;
+                color: $color-grey;
+
+                padding: 8px 0;
+                margin-right: 50px;
+                display: flex;
+            }
+        }
+    }
+}
+
+.menu-item {
+    display: none;
+    position: absolute;
+    background: #fff;
+    z-index: 222222;
+}
+
+.menu-item-header {
+    @extend %text-format;
+    font-size: $font18 !important;
+
+}
+
+.carousel {
+    background-color: $color-white-grey;
+}
+
+.banner {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: $color-black;
+    font-size: 1.5em;
+    margin: 15px;
+
+    &--green {
+        color: $color-green;
+    }
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.call-to-action {
+    color: $color-grey;
+    text-transform: uppercase;
+    font-size: $font18;
+    font-weight: bold;
+
+    &:hover {
+        color: $color-green;
+    }
+}
+
+.icon-service {
+    float: left;
+
+    & a {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #f4f4f4;
+        margin: 0 7px 0 0;
+        display: inline-block;
+        position: relative;
+    }
+
+    & i {
+        color: $color-green;
+        position: absolute;
+        left: -10px;
+        top: 10px;
+        // transition: all 0.5s ease-out 0s;
+        // -webkit-transition: all 0.5s ease-out 0s
 
         &:hover {
-            background: gren;
+            left: 9px;
         }
     }
 
-    &-xx {
-        color: aqua;
-    }
-
-    &__block {
-        color: rebeccapurple;
-    }
 }
 
-body {
-    background: $brand_color;
+.item {
+    background: url(../images/bg-color-1.jpg);
+    padding-top: 20px;
+    line-height: 2em;
 }
 
-header {
-    color: green;
-    @include transform(rotate(30deg));
-
-    .logo {
-        width: 30px;
-
-        &:hover {
-            display: block;
-        }
-
-    }
+.thumb-advs {
+    position: absolute;
+    right: 45px;
+    bottom: -105px;
 }
 
-@import "./_homepage";
+.advs-thumb-link {
+    display: block;
+    overflow: hidden;
+    position: relative;
+}

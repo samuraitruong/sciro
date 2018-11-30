@@ -29,7 +29,7 @@ function buildHtml() {
 }
 // The `build` function is exported so it is public and can be run with the `gulp` command.
 // It can also be used within the `series()` composition.
-const build = series(parallel(buildHtml, buildCSS, buildJavaScript), function (cb) {
+const build = series(parallel(buildHtml, buildCSS, buildJavaScript, buildImage), function (cb) {
     // body omitted
     cb();
 });
@@ -38,6 +38,11 @@ function buildCSS() {
     return src('./src/**/*.scss')
         .pipe(sass().on('error', sass.logError))
 
+        .pipe(dest('./dist'));
+};
+
+function buildImage() {
+    return src(['./src/**/*.jpg', './src/**/*.png'])
         .pipe(dest('./dist'));
 };
 
@@ -51,6 +56,11 @@ function watchCSS(cb) {
     cb();
 }
 
+function watchImage(cb) {
+    return watch('./src/**/*.jpg', buildImage);
+    cb();
+}
+
 function watchHTML(cb) {
     return watch('./src/**/*.html', buildHtml);
     cb();
@@ -61,7 +71,7 @@ function watchJavaScript(cb) {
     cb();
 }
 
-const watchAll = parallel(watchCSS, watchHTML, watchJavaScript);
+const watchAll = parallel(watchCSS, watchHTML, watchJavaScript, watchImage);
 
 exports.buildCSS = buildCSS;
 exports.build = build;
